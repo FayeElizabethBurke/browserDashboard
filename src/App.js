@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-
+import Iframe from 'react-iframe';
+//google api key: AIzaSyBH0_ZkBlm2PMYa2XIjFp_fqGEpzYJuYDQ 
 
 export default class apis extends React.Component {
   state = {
@@ -55,7 +56,15 @@ var today = dd + ` ` + months[mm] + ' ' + yyyy;
         <h1 style = {headingStyle}>Hello, Faye</h1>
     <h2 style={smallHeadingStyle}>It's {today}</h2>
     <p>{this.state.explanation}</p>
+    <Iframe url="https://calendar.google.com/calendar/embed?src=fayeelizabethburke%40gmail.com&ctz=Australia%2FBrisbane"
+        width="100%"
+        height="500px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"/>
       </div>
+
 
     )
   }
