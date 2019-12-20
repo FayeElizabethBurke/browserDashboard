@@ -13,16 +13,11 @@ export default class apis extends React.Component {
       .then(res => {
         const image = res.data.url;
         this.setState({ image });
-      })
-  }
-
-  componentDidMount() {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=nEw4cQXLDEnerOgiB1nvFzHr4aJMa8BeOXOpVbLd`)
-      .then(res => {
         const explanation = res.data.explanation;
         this.setState({ explanation });
       })
   }
+
   render() {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     var today = new Date();
@@ -45,13 +40,15 @@ var today = dd + ` ` + months[mm] + ' ' + yyyy;
       fontSize: `80px`,
       opacity: 1 + ` !important`,
       textAlign: `center`,
-      paddingTop: `15%`
+      paddingTop: `15%`,
+      color: 'red'
     }
     const smallHeadingStyle = {
       fontSize: `50px`,
       opacity: 1 + ` !important`,
       textAlign: `center`,
-      paddingTop: `2%`
+      paddingTop: `2%`,
+      color: 'red'
     }
     return (
       <div style={containerStyle}>
