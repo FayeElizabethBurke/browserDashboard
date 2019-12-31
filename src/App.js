@@ -9,7 +9,8 @@ export default class apis extends React.Component {
     image: [],
     weather: [],
     location: [],
-    temp: []
+    temp: [],
+    icon: []
   }
 
   componentDidMount() {
@@ -27,6 +28,8 @@ export default class apis extends React.Component {
         this.setState({ location });
         const temp = res.data.main.temp;
         this.setState({ temp });
+        const icon = res.data.weather[0].icon;
+        this.setState({ icon });
       })
   }
 
@@ -51,6 +54,13 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
       backgroundSize: `110%`,
       textAlign: `center`,
       border: `10px solid black`
+    }
+//not yet working
+    const icon = {
+      backgroundImage: `url('http://openweathermap.org/img/w/' + ${this.state.icon} + '.png')`,
+      height: `50px`,
+      width: `50px`,
+      border: `2px solid white`
     }
 
     const headingStyle = {
@@ -95,7 +105,7 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
   <p style={weatherStyle}>Expect {this.state.weather} in {this.state.location}. It's {Math.ceil(this.state.temp - 273)} degrees.</p>
         <p style={smallHeadingStyle}>{today}</p>
         <h1 style = {headingStyle}>Hello, Faye</h1>
-
+  {/* <img style={icon} alt=""></img> */}
 
 
     <Iframe style= {iframeStyle} url="https://calendar.google.com/calendar/embed?src=fayeelizabethburke%40gmail.com&ctz=Australia%2FBrisbane"
