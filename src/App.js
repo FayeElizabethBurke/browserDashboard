@@ -55,12 +55,10 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
       textAlign: `center`,
       border: `10px solid black`
     }
-//not yet working
+
     const icon = {
-      backgroundImage: `url('http://openweathermap.org/img/w/' + ${this.state.icon} + '.png')`,
       height: `50px`,
-      width: `50px`,
-      border: `2px solid white`
+      width: `50px`
     }
 
     const headingStyle = {
@@ -79,18 +77,20 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
       backgroundColor: `black`,
       margin: `0`,
       border: `1px solid black`,
-      padding: `1%`
+      padding: `1%`,
+      boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.5)`
     }
 
     const smallHeadingStyle = {
       fontSize: `40px`,
       opacity: 1 + ` !important`,
-      paddingBottom: `5%`,
+      paddingBottom: `2%`,
       paddingTop: `2%`,
       paddingLeft: `2%`,
       color: 'white',
       textAlign: `left`,
-      margin: `0`
+      margin: `0`,
+      boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.5)`
     }
 
     const iframeStyle = {
@@ -101,11 +101,13 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
 
     return (
       
-      <div style={containerStyle}>
-  <p style={weatherStyle}>Expect {this.state.weather} in {this.state.location}. It's {Math.ceil(this.state.temp - 273)} degrees.</p>
-        <p style={smallHeadingStyle}>{today}</p>
-        <h1 style = {headingStyle}>Hello, Faye</h1>
-  {/* <img style={icon} alt=""></img> */}
+    <div style={containerStyle}>
+    <p style={weatherStyle}>Expect {this.state.weather} in {this.state.location}. It's {Math.ceil(this.state.temp - 273)} degrees.<span>    </span>
+    <img alt="" style={icon} src={`http://openweathermap.org/img/w/${this.state.icon}.png`} />
+    </p>
+    <p style={smallHeadingStyle}>{today}</p>
+    <h1 style = {headingStyle}>Hello, Faye</h1>
+  
 
 
     <Iframe style= {iframeStyle} url="https://calendar.google.com/calendar/embed?src=fayeelizabethburke%40gmail.com&ctz=Australia%2FBrisbane"
