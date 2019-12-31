@@ -7,7 +7,9 @@ import Iframe from 'react-iframe';
 export default class apis extends React.Component {
   state = {
     image: [],
-    explanation: []
+    weather: [],
+    location: [],
+    temp: []
   }
 
   componentDidMount() {
@@ -15,8 +17,16 @@ export default class apis extends React.Component {
       .then(res => {
         const image = res.data.hdurl;
         this.setState({ image });
-        const explanation = res.data.explanation;
-        this.setState({ explanation });
+      })
+
+      axios.get(`http://api.openweathermap.org/data/2.5/weather?q=Manchester,uk&appid=33517b3884fc22bf3c44b3c37a46344f`)
+      .then(res => {
+        const weather = res.data.weather[0].description;
+        this.setState({ weather });
+        const location = res.data.name;
+        this.setState({ location });
+        const temp = res.data.main.temp;
+        this.setState({ temp });
       })
   }
 
@@ -32,54 +42,71 @@ if (dd < 10) {
 } 
 today = dd + ` ` + months[mm] + ' ' + yyyy;
     const containerStyle = {
-      margin: '0',
-      width: '98vw',
-      height: '100vw',
+      margin: '0 !important',
+      padding: `0`,
+      width: '100%',
+      height: '100%',
       backgroundImage: `url(${this.state.image})`,
-      webkitFilter: `invert(1)`,
-      filter: `invert(1)`,
       backgroundRepeat: `no-repeat`,
-      backgroundSize: `100%`,
-      textAlign: `center`
+      backgroundSize: `110%`,
+      textAlign: `center`,
+      border: `10px solid black`
     }
+
     const headingStyle = {
       fontSize: `120px`,
       opacity: 1 + ` !important`,
       textAlign: `center`,
-      paddingBottom: `15%`,
+      paddingBottom: `20%`,
       color: 'white',
       margin: `0`,
-      paddingTop: `10%`,
+      paddingTop: `7%`,
     }
+    const weatherStyle = {
+      fontSize: `30px`,
+      textAlign: `center`,
+      color: `white`,
+      backgroundColor: `black`,
+      margin: `0`,
+      border: `1px solid black`,
+      padding: `1%`
+    }
+
     const smallHeadingStyle = {
       fontSize: `40px`,
       opacity: 1 + ` !important`,
-      paddingTop: `2%`,
       paddingBottom: `5%`,
+      paddingTop: `2%`,
+      paddingLeft: `2%`,
       color: 'white',
       textAlign: `left`,
       margin: `0`
     }
 
     const iframeStyle = {
-      border: `10px solid black`
+      border: `10px solid black`,
+      padding: `0`,
+      margin: `0`
     }
 
     return (
       
       <div style={containerStyle}>
-        <p style={smallHeadingStyle}>It's {today}</p>
+  <p style={weatherStyle}>Expect {this.state.weather} in {this.state.location}. It's {Math.ceil(this.state.temp - 273)} degrees.</p>
+        <p style={smallHeadingStyle}>{today}</p>
         <h1 style = {headingStyle}>Hello, Faye</h1>
 
 
 
     <Iframe style= {iframeStyle} url="https://calendar.google.com/calendar/embed?src=fayeelizabethburke%40gmail.com&ctz=Australia%2FBrisbane"
-        width="1200px"
-        height="700px"
+        width="1400px"
+        height="500px"
         id="myId"
         className="myClassname"
         display="initial"
         position="center"/>
+
+        
       </div>
 
     )
