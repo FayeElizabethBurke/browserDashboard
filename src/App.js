@@ -62,13 +62,14 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
     }
 
     const headingStyle = {
-      fontSize: `120px`,
+      fontSize: `140px`,
       opacity: 1 + ` !important`,
       textAlign: `center`,
       paddingBottom: `20%`,
       color: 'white',
       margin: `0`,
       paddingTop: `7%`,
+      textShadow: `2px 2px #1a1a1a`
     }
     const weatherStyle = {
       fontSize: `30px`,
@@ -84,8 +85,8 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
     const smallHeadingStyle = {
       fontSize: `40px`,
       opacity: 1 + ` !important`,
-      paddingBottom: `2%`,
-      paddingTop: `2%`,
+      paddingBottom: `1%`,
+      paddingTop: `1%`,
       paddingLeft: `2%`,
       color: 'white',
       textAlign: `left`,
