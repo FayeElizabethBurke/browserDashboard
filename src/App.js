@@ -47,11 +47,11 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
     const containerStyle = {
       margin: '0 !important',
       padding: `0`,
-      width: '100%',
+      width: '98.5%',
       height: '100%',
       backgroundImage: `url(${this.state.image})`,
       backgroundRepeat: `no-repeat`,
-      backgroundSize: `110%`,
+      backgroundSize: `100%`,
       textAlign: `center`,
       border: `10px solid black`
     }
@@ -111,7 +111,7 @@ today = dd + ` ` + months[mm] + ' ' + yyyy;
   
 
 
-    <Iframe style= {iframeStyle} url="https://calendar.google.com/calendar/embed?src=fayeelizabethburke%40gmail.com&ctz=Australia%2FBrisbane"
+    <Iframe style= {iframeStyle} url="https://calendar.google.com/calendar?cid=ZmF5ZWVsaXphYmV0aGJ1cmtlQGdtYWlsLmNvbQ"
         width="1400px"
         height="500px"
         id="myId"
